@@ -4,16 +4,31 @@ User Authentication:
 Register and log in users using JWT for authentication.
 */
 
+require('dotenv').config();
 const { successResponse } = require("../helpers/response-manager");
 const sc = require('http-status');
 const db = require("../models");
+const jwt = require('jsonwebtoken');
+const {env} = process;
 
 
 /* login */
 const login = async (req, res, next) => {
 	try {
-		const data = successResponse({
+		const findUser = await db.user.findOne({
+			where: {
+				email: req.body.email,
+				password: req.body.password,
+			}
+		});
 
+		if(!findUser) throw new TypeError('Unauthorized');
+		
+		const token = jwt.sign({ id: findUser.id }, env.SECRET_JWT);
+
+		const data = successResponse({
+			token,
+			user: findUser
 		}, 'Logged In.');
 		res.status(sc.OK).json(data);
 	} catch (error) {

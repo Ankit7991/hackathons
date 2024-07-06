@@ -24,8 +24,7 @@ app.use('/', routes);
 
 /* error handling */
 app.use((err, req, res, next) => {
-	console.log('here too');
-
+	console.log('❌🚨❌', err);
 	if(err) {
 		res.status(hs.BAD_REQUEST).json(errorResponse(err));
 	}

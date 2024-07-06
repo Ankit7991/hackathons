@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"client-dev": "cd ../pfa-client && npm run dev", 
-	"dev": "concurrently \"nodemon app.js\" ",
-	"re-sequelize": "sequelize db:migrate:undo:all && sequelize db:drop && sequelize db:create && sequelize db:migrate" 
+    "client-dev": "cd ../pfa-client && npm run dev",
+    "dev": "concurrently \"nodemon app.js\" ",
+    "re-sequelize": "sequelize db:migrate:undo:all && sequelize db:drop && sequelize db:create && sequelize db:migrate"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "express": "^4.19.2",
     "helmet": "^7.1.0",
     "http-status": "^1.7.4",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "mysql2": "^3.10.2",
     "sequelize": "^6.37.3"
