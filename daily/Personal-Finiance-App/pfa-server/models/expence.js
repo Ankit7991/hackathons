@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		time: {
 			type: DataTypes.DATE,
-			defaultValue: DataTypes.literal(`current_timestamp`)
 		},
 
 		type: {
@@ -53,6 +52,7 @@ module.exports = (sequelize, DataTypes) => {
 	}, {
 		sequelize,
 		modelName: 'expence',
+	freezeTableName: true
 	});
 	return expence;
 };

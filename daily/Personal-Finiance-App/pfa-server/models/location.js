@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class location extends Model {
     /**
      * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
+     * This method is not a part of DataTypes lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
@@ -18,16 +18,17 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false,
 			autoIncrement: true,
 			primaryKey: true,
-			type: Sequelize.INTEGER
+			type: DataTypes.INTEGER
 		},
 		address: {
-			type: Sequelize.STRING,
+			type: DataTypes.STRING,
 			allowNull: false,
 		},
 			/* later state/city/country id's can be added */
   }, {
     sequelize,
     modelName: 'location',
+	freezeTableName: true
   });
   return location;
 };

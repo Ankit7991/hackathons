@@ -15,6 +15,7 @@ const app = express();
 app.use(bodyparser.json({}));
 app.use(cors());
 app.use(helmet());
+app.use(morgan('dev'));
 
 
 /* routes/versioning */

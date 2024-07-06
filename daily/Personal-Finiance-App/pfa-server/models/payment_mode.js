@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'payment_mode',
+	freezeTableName: true
   });
   return payment_mode;
 };

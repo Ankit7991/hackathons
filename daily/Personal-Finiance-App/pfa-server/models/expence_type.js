@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'expence_type',
+	freezeTableName: true
   });
   return expence_type;
 };

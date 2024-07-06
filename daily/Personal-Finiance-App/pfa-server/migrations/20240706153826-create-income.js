@@ -16,6 +16,7 @@ module.exports = {
 			},
 			time: {
 				type: Sequelize.DATE,
+				required: false,
 				defaultValue: Sequelize.literal(`current_timestamp`)
 			},
 
@@ -43,7 +44,7 @@ module.exports = {
 					model: 'user'
 				}
 			},
-			userId: {
+			paymentMode: {
 				type: Sequelize.INTEGER,
 				allowNull: true,
 				defaultValue: null,

@@ -9,11 +9,11 @@ const routes = require('express').Router();
 
 /* routes here */
 
-routes.route('/auth', authRoutes);
-routes.route('/budget', budgetRoutes);
-routes.route('/dashboard', dashboardRoutes);
-routes.route('/expence', expenceRoutes);
-routes.route('/income', incomeRoutes);
+routes.use('/auth', authRoutes);
+routes.use('/budget', budgetRoutes);
+routes.use('/dashboard', dashboardRoutes);
+routes.use('/expence', expenceRoutes);
+routes.use('/income', incomeRoutes);
 
 
 /* test route */
