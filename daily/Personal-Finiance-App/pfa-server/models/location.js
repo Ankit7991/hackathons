@@ -13,8 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  location.init({
-    id: DataTypes.NUMBER
+	location.init({
+		id: {
+			allowNull: false,
+			autoIncrement: true,
+			primaryKey: true,
+			type: Sequelize.INTEGER
+		},
+		address: {
+			type: Sequelize.STRING,
+			allowNull: false,
+		},
+			/* later state/city/country id's can be added */
   }, {
     sequelize,
     modelName: 'location',

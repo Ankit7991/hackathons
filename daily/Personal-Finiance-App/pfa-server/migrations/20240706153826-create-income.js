@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
 	async up(queryInterface, Sequelize) {
-		await queryInterface.createTable('expence', {
+		await queryInterface.createTable('income', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
@@ -24,7 +24,7 @@ module.exports = {
 				allowNull: true,
 				defaultValue: null,
 				references: {
-					model: 'expence_type'
+					model: 'income_type'
 				}
 			},
 			location: {
@@ -51,20 +51,17 @@ module.exports = {
 					model: 'payment_mode'
 				}
 			},
-			
 			createdAt: {
 				allowNull: false,
-				type: Sequelize.DATE,
-				defaultValue: Sequelize.literal(`current_timestamp`)
+				type: Sequelize.DATE
 			},
 			updatedAt: {
 				allowNull: false,
-				type: Sequelize.DATE,
-				defaultValue: Sequelize.literal(`current_timestamp on update current_timestamp`)
+				type: Sequelize.DATE
 			}
 		});
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable('expence');
+		await queryInterface.dropTable('income');
 	}
 };
