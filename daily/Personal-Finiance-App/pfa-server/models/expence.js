@@ -41,10 +41,10 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		userId: {
 			type: DataTypes.INTEGER,
-			allowNull: true,
+			allowNull: false,
 			defaultValue: null,
 		},
-		userId: {
+		paymentMode: {
 			type: DataTypes.INTEGER,
 			allowNull: true,
 			defaultValue: null,

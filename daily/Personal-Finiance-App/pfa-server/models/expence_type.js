@@ -24,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
+		userId: {
+			type: DataTypes.INTEGER,
+			allowNull: true,
+			defaultValue: null,
+		},
   }, {
     sequelize,
     modelName: 'expence_type',
