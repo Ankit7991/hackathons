@@ -13,6 +13,13 @@ module.exports = {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
+			userId: {
+				type: Sequelize.INTEGER,
+				allowNull: true,
+				references: {
+					model: 'user'
+				}
+			},
 			/* later state/city/country id's can be added */
 			createdAt: {
 				allowNull: false,

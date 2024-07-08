@@ -2,10 +2,12 @@ const db = require("../models");
 
 async function addExpenceType (idOrType, userId) {
 	try {
-		if(typeof parseInt(idOrType) === 'number') {return await getExpenceType()};
+		if(!isNaN(parseInt(idOrType))) {return {id: idOrType}};
 
+		const exists = await findExpenceType({type: idOrType});
+		if(exists) return exists;
 
-		const data = await db.expence.create({
+		const data = await db.expence_type.create({
 			type: idOrType,
 			userId
 		});
@@ -18,13 +20,15 @@ async function addExpenceType (idOrType, userId) {
 
 
 function getExpenceType(id) {
-	return db.expence.findById(id);
+	return db.expence_type.findById(id);
+}
+
+function findExpenceType(where) {
+	return db.expence_type.findOne({where})
 }
 
 
 
-
-
 module.exports = {
-	addExpences
+	addExpenceType
 }

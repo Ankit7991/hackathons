@@ -1,4 +1,5 @@
 const { successResponse } = require('../helpers/response-manager');
+const { authMiddleware } = require('../middleware/authentication.mw');
 const authRoutes = require('./auth');
 const budgetRoutes = require('./budget');
 const dashboardRoutes = require('./dashboard');
@@ -12,7 +13,7 @@ const routes = require('express').Router();
 routes.use('/auth', authRoutes);
 routes.use('/budget', budgetRoutes);
 routes.use('/dashboard', dashboardRoutes);
-routes.use('/expence', expenceRoutes);
+routes.use('/expence', authMiddleware, expenceRoutes);
 routes.use('/income', incomeRoutes);
 
 

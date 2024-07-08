@@ -60,7 +60,7 @@ const signup = async (req, res, next) => {
 
 
 
-		const data = successResponse(userData , 'Logged In.');
+		const data = successResponse(userData , 'Signed Up.');
 		res.status(sc.OK).json(data);
 
 	} catch (error) {

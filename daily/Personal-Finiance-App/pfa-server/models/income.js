@@ -49,18 +49,11 @@ module.exports = (sequelize, DataTypes) => {
 		userId: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
-			defaultValue: null,
-			references: {
-				model: 'user'
-			}
 		},
 		paymentMode: {
 			type: DataTypes.INTEGER,
 			allowNull: true,
 			defaultValue: null,
-			references: {
-				model: 'payment_mode'
-			}
 		},
 	}, {
 		sequelize,

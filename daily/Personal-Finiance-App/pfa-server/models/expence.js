@@ -42,7 +42,6 @@ module.exports = (sequelize, DataTypes) => {
 		userId: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
-			defaultValue: null,
 		},
 		paymentMode: {
 			type: DataTypes.INTEGER,

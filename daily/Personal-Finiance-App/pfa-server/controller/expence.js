@@ -7,6 +7,10 @@ Categorize entries (e.g., salary, rent, groceries, entertainment).
 
 const { successResponse } = require("../helpers/response-manager");
 const db = require("../models");
+const { addExpenceType } = require("../services/expence-type.sr");
+const sc = require('http-status');
+const { addLocation } = require("../services/location.sr");
+const { findExpences } = require("../services/expence.sr");
 
 
 /* crud expence */
@@ -14,19 +18,19 @@ const db = require("../models");
 
 const addExpences = async (req, res, next) => {
 	try {
+		const expenceType = await addExpenceType(req.body.type, req.user.id);
+		const location = await addLocation(req.body.type, req.user.id);
+
 		const expenceData = {
 			amount: req.body.amount,
 			time: req.body.time,
-			type: req.body.type,
-			location: req.body.location,
+			type: expenceType.id,
+			location: location.id,
 			userId: req.user.id,
 			paymentMode: req.body.paymentMode,
 		};
 
-		if()
-		
-
-		const newExpence = db.expence.create(JSON.parse(JSON.stringify(expenceData)));
+		const newExpence = await db.expence.create(JSON.parse(JSON.stringify(expenceData)));
 
 		const data = successResponse(newExpence, 'Logged In.');
 		res.status(sc.OK).json(data);
@@ -64,10 +68,7 @@ const deleteExpences = async (req, res, next) => {
 
 const listExpences = async (req, res, next) => {
 	try {
-
-		const data = successResponse({
-
-		}, 'Logged In.');
+		const data = successResponse(await findExpences(req.body), 'Data Fetched.');
 		res.status(sc.OK).json(data);
 	} catch (error) {
 		next(error);
