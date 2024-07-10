@@ -7,7 +7,7 @@ interface ICustomForm {
 	children?: ReactNode,
 	submit?: (...keys: any[]) => void
 };
-
+ 
 export const CustomForm = ({ formFields, children, submit }: ICustomForm) => {
 	const myform = useRef(null);
 
