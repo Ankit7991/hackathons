@@ -12,10 +12,7 @@ export const withAuth = (Component: any) => {
 		if (token) {
 			return <Component {...props} />;
 		} else {
-			// Redirect to login page if token is not present
-			// return <Navigate to="/login" replace />;
 			return <h1>Unauthorized</h1>
 		}
-
 	}
 }

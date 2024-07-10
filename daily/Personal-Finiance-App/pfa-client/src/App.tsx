@@ -1,16 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import Dashboard from './page/Dashboard'
+import Dashboard from './page/dashboard/Dashboard'
 import { withAuth } from './component/hoc/withAuth'
+import AuthenticatedDashboard from './page/dashboard/Dashboard'
 
-const AuthenticatedDashboard = withAuth(Dashboard);
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
