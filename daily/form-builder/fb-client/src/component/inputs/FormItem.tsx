@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { IInput } from './Input';
 
 
-
 export const FormItem = ({ index, itemParentName: key }: { index: number, itemParentName: string}) => {
 	const [type, setType] = useState<IInput['type']>('text');
 	return (
