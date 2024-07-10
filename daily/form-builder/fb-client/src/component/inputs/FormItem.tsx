@@ -3,12 +3,12 @@ import { IInput } from './Input';
 
 
 
-export const FormItem = () => {
+export const FormItem = ({ index, itemParentName: key }: { index: number, itemParentName: string}) => {
 	const [type, setType] = useState<IInput['type']>('text');
 	return (
 		<div>
 			<div style={{display: 'inline-block', border: '1px solid gray', padding: '10px', margin: '10px 0', borderRadius: '10px'}}>
-				<select name='type' onChange={(e: any) => setType(e.target?.value)}>
+				<select name={`${key}.type[${index}]`} onChange={(e: any) => setType(e.target?.value)}>
 					Select Type
 					{
 						['text', 'checkbox', 'select'].map(el => {
@@ -18,14 +18,14 @@ export const FormItem = () => {
 						})
 					}
 				</select>
-				<input type='text' placeholder='Enter input name' name='name' />
-				<input type='text' placeholder='Enter placeholder' name='placeholder' />
-				<input type='text' placeholder='Enter label' name='label' />
+				<input type='text' placeholder='Enter input name' name={`${key}.name[${index}]`} />
+				<input type='text' placeholder='Enter placeholder' name={`${key}.placeholder[${index}]`} />
+				<input type='text' placeholder='Enter label' name={`${key}.label[${index}]`} />
 				<div>
 					<label htmlFor='isRequired'>Is Required?</label>
-					<input type={'checkbox'} name='required' id='isRequired'/><br/>
-					<input type={'number'} name='minLength' placeholder='Min Length' />
-					<input type={'number'} name='maxLength' placeholder='Max Length' />
+					<input type={'checkbox'} name={`${key}.required[${index}]`} id='isRequired'/><br/>
+					<input type={'number'} name={`${key}.minLength[${index}]`} placeholder='Min Length' />
+					<input type={'number'} name={`${key}.maxLength[${index}]`} placeholder='Max Length' />
 				</div>
 				{/* {type} */}
 			</div>

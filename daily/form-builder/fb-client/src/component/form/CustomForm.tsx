@@ -1,25 +1,24 @@
 import { FormEvent, Fragment, ReactNode, useRef, useState } from 'react'
 import Input, { IInput } from '../inputs/Input';
 
+
 interface ICustomForm {
 	formFields: IInput[],
-	children?: ReactNode
+	children?: ReactNode,
+	submit?: (...keys: any[]) => void
 };
 
-export const CustomForm = ({ formFields, children }: ICustomForm) => {
+export const CustomForm = ({ formFields, children, submit }: ICustomForm) => {
 	const myform = useRef(null);
-	// const [formState, setFormState] = useState
-
 
 	function handleSubmit(e: FormEvent) {
 		e.preventDefault();
 		if (myform.current) {
 			const form = new FormData(myform.current);
 			const formData = Object.fromEntries(form);
-			console.log(formData);
+			submit?.(formData);
 		};
 	}
-
 
 	return (
 		<>
