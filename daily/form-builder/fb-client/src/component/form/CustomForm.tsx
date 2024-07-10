@@ -1,4 +1,4 @@
-import { FormEvent, Fragment, ReactNode, useRef } from 'react'
+import { FormEvent, Fragment, ReactNode, useRef, useState } from 'react'
 import Input, { IInput } from '../inputs/Input';
 
 interface ICustomForm {
@@ -8,6 +8,7 @@ interface ICustomForm {
 
 export const CustomForm = ({ formFields, children }: ICustomForm) => {
 	const myform = useRef(null);
+	// const [formState, setFormState] = useState
 
 
 	function handleSubmit(e: FormEvent) {
@@ -22,6 +23,7 @@ export const CustomForm = ({ formFields, children }: ICustomForm) => {
 
 	return (
 		<>
+		
 			<form ref={myform} onSubmit={(e: FormEvent) => handleSubmit(e)}>
 				{
 					formFields.map((inputData, i) => {
