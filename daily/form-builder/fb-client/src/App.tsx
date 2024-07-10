@@ -4,29 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Input, { IInput } from './component/inputs/Input'
 import { useRef } from 'react'
+import {Routes, Route, Link} from 'react-router-dom';
+import { AddForm } from './pages/AddForm'
+import Test from './pages/Test'
 
-const formData: IInput[] = [
-	{
-		type: 'text',
-		placeholder: 'Username',
-		name: 'username'
-	},
-	{
-		type: 'checkbox',
-		name: 'policy',
-		label: 'Agree to policies'
-	},
-	{
-		type: 'select',
-		name: 'gender',
-		selectOptions: [
-			{ label: 'Male', value: 'male' },
-			{ label: 'Female', value: 'female' }
-		]
-	}
-]
 function App() {
-	const [count, setCount] = useState(0);
 	const myform = useRef(null);
 
 
@@ -42,20 +24,15 @@ function App() {
 
 	return (
 		<>
-			<form ref={myform} onSubmit={(e: FormEvent) => handleSubmit(e)}>
-				{
-					formData.map((inputData, i) => {
-						return <Fragment key={i}>
-							<Input data={inputData} />
-						</Fragment>
-					})
-				}
-				<select name='abc'>
-					<option value={'def'}>def</option>
-				</select>
-
-				<button>Submit</button>
-			</form>
+			<div style={{display: 'flex', 'gap': '10px', 'marginBottom': '20px'}}>
+				<Link to={'/'}>Home</Link>
+				<Link to={'/create-form'}>Create Form</Link>
+				<Link to={'/test'}>Test</Link>
+			</div>
+			<Routes>
+				<Route path='/test' element={<Test />}/>
+				<Route path='/create-form' element={<AddForm />}/>
+			</Routes>
 		</>
 	)
 }
