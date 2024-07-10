@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import { Fragment, useState } from 'react'
 import { CustomForm } from '../component/form/CustomForm'
 import { FormItem } from '../component/inputs/FormItem'
 import { IInput } from '../component/inputs/Input'

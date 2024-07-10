@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 
 export interface IInput {
 	type: 'text' | 'checkbox' | 'select';
